@@ -1,4 +1,5 @@
 import itertools
+import os
 
 
 def execute_simple(s: str) -> int:
@@ -21,14 +22,20 @@ def execute(s: str) -> int:
         raise NotImplementedError
 
 
-def main() -> None:
-    with open("input_1.txt") as f:
-        result_simple = execute_simple(f.read())
-        print("result_simple", result_simple)
-        f.seek(0)
+def main_simple() -> int:
+    __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    with open(os.path.join(__location__, "input_1.txt")) as f:
+        result = execute_simple(f.read())
+        return result
+
+
+def main() -> int:
+    __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    with open(os.path.join(__location__, "input_1.txt")) as f:
         result = execute(f.read())
-        print("result", result)
+        return result
 
 
 if __name__ == "__main__":
-    main()
+    print(main_simple())
+    print(main())

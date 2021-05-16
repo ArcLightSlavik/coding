@@ -1,4 +1,5 @@
 import itertools
+import os
 
 
 def execute(s: str) -> int:
@@ -10,11 +11,12 @@ def execute(s: str) -> int:
         raise NotImplementedError
 
 
-def main() -> None:
-    with open("input_1.txt") as f:
+def main() -> int:
+    __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    with open(os.path.join(__location__, "input_1.txt")) as f:
         result = execute(f.read())
-        print(result)
+        return result
 
 
 if __name__ == "__main__":
-    main()
+    print(main())

@@ -1,6 +1,7 @@
 import pytest
 
 from .part_2 import execute
+from .part_2 import main
 
 
 @pytest.mark.parametrize(
@@ -9,3 +10,7 @@ from .part_2 import execute
 )
 def test(input_s: str, expected: int) -> None:
     assert execute(input_s) == expected
+
+
+def test_main() -> None:
+    assert main() == 165795564
