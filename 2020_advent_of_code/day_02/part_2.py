@@ -1,13 +1,12 @@
-from typing import NamedTuple
-
 import os
+from typing import NamedTuple
 
 
 def execute_simple(s: str) -> int:
     counter = 0
     for line in s.splitlines():
         password_range, character, password = line.split()
-        password_range_start_string, password_range_end_string = password_range.split('-')
+        password_range_start_string, password_range_end_string = password_range.split("-")
         range_start, range_end = int(password_range_start_string), int(password_range_end_string)
         character = character[0]
 
@@ -33,13 +32,15 @@ def parse_into_password(s: str) -> list[Password]:
 
     for line in s.splitlines():
         password_range, character, password = line.split()
-        password_range_start_string, password_range_end_string = password_range.split('-')
-        password_list.append(Password(
-            int(password_range_start_string),
-            int(password_range_end_string),
-            (character[0]),
-            password,
-        ))
+        password_range_start_string, password_range_end_string = password_range.split("-")
+        password_list.append(
+            Password(
+                int(password_range_start_string),
+                int(password_range_end_string),
+                (character[0]),
+                password,
+            ),
+        )
     return password_list
 
 
