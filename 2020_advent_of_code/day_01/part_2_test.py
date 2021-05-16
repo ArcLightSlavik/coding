@@ -8,8 +8,13 @@ from .part_2 import main
     ("input_s", "expected"),
     (("1721 979 366 299 675 1456", 241861950),),
 )
-def test(input_s: str, expected: int) -> None:
+def test_execute(input_s: str, expected: int) -> None:
     assert execute(input_s) == expected
+
+
+def test_execute_exception() -> None:
+    with pytest.raises(NotImplementedError):
+        execute("")
 
 
 def test_main() -> None:
