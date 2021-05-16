@@ -13,7 +13,7 @@ def execute(s: str) -> int:
 
 def main() -> int:
     __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-    with open(os.path.join(__location__, "input_1.txt")) as f:
+    with open(os.path.join(__location__, "input.txt")) as f:
         result = execute(f.read())
         return result
 
