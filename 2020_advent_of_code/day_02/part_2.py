@@ -1,4 +1,5 @@
 import os
+from typing import List
 from typing import NamedTuple
 
 
@@ -27,7 +28,7 @@ class Password(NamedTuple):
     password: str
 
 
-def parse_into_password(s: str) -> list[Password]:
+def parse_into_password(s: str) -> List[Password]:
     password_list = []
 
     for line in s.splitlines():

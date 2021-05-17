@@ -22,7 +22,7 @@ def test_execute_simple(input_s: str, expected: int) -> None:
 
 @pytest.mark.parametrize(
     ("input_s", "expected"),
-    ((INPUT_S, 2),),
+    ((INPUT_S, 1),),
 )
 def test_execute(input_s: str, expected: int) -> None:
     assert execute(input_s) == expected
