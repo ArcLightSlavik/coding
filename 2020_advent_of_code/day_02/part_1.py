@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 import os
-from typing import List
-from typing import NamedTuple
+from dataclasses import dataclass
 
 
 def execute_simple(s: str) -> int:
@@ -19,14 +20,15 @@ def execute_simple(s: str) -> int:
     return counter
 
 
-class Password(NamedTuple):
+@dataclass
+class Password:
     begin: int
     end: int
     char: str
     password: str
 
 
-def parse_into_password(s: str) -> List[Password]:
+def parse_into_password(s: str) -> list[Password]:
     password_list = []
 
     for line in s.splitlines():
