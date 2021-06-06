@@ -20,7 +20,7 @@ def execute_simple(s: str) -> int:
         if n + 1 not in all_inputs and n + 2 in all_inputs:
             return n + 1
 
-    raise AssertionError
+    raise AssertionError  # pragma: no cover
 
 
 def execute(s: str) -> int:
@@ -34,7 +34,7 @@ def execute(s: str) -> int:
         if remaining - 1 not in all_inputs and remaining + 1 not in all_inputs:
             return remaining
 
-    raise AssertionError
+    raise AssertionError  # pragma: no cover
 
 
 def main_simple() -> int:

@@ -43,7 +43,7 @@ def execute(s: str) -> int:
     for passport in ret:
         if passport.keys() >= REQUIRED:
             if not (1920 <= int(passport["byr"]) <= 2002):
-                continue
+                continue  # pragma: no cover
             if not (2010 <= int(passport["iyr"]) <= 2020):
                 continue
             if not (2020 <= int(passport["eyr"]) <= 2030):
@@ -54,7 +54,7 @@ def execute(s: str) -> int:
                 continue
 
             if match[2] == "in" and not (59 <= int(match[1]) <= 76):
-                continue
+                continue  # # pragma: no cover
             if match[2] == "cm" and not (150 <= int(match[1]) <= 193):
                 continue
 
