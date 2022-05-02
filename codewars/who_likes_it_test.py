@@ -1,6 +1,6 @@
 import pytest
 
-from .who_likes_it import execute
+from codewars.who_likes_it import execute
 
 
 @pytest.mark.parametrize(
