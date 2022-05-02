@@ -3,10 +3,7 @@ import os
 
 def execute(s: str) -> int:
     numbers = [int(line) for line in s.splitlines()]
-    return sum(
-        numbers[i] > numbers[i - 3]
-        for i in range(1, len(numbers))
-    )
+    return sum(numbers[i] > numbers[i - 3] for i in range(1, len(numbers)))
 
 
 def main() -> int:
