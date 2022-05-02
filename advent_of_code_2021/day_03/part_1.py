@@ -1,5 +1,4 @@
 import os
-
 from collections import defaultdict
 
 
@@ -9,7 +8,7 @@ def execute(s: str) -> int:
 
     for line in lines:
         for i, c in enumerate(line):
-            if c == '1':
+            if c == "1":
                 counts[i] += 1
 
     num1 = []

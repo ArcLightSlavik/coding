@@ -1,6 +1,5 @@
-from typing import Any
-
 import os
+from typing import Any
 
 
 def execute(s: str) -> int:
@@ -12,11 +11,11 @@ def execute(s: str) -> int:
     included = set(range(len(lines)))
     while len(included) != 1:
         column = columns[len(path)]
-        ones = sum(column[pos] == '1' for pos in included)
+        ones = sum(column[pos] == "1" for pos in included)
         if ones >= len(included) / 2:
-            path.append('1')
+            path.append("1")
         else:
-            path.append('0')
+            path.append("0")
 
         included = {pos for pos in included if column[pos] == path[-1]}
 
@@ -26,11 +25,11 @@ def execute(s: str) -> int:
     included = set(range(len(lines)))
     while len(included) != 1:
         column = columns[len(path)]
-        ones = sum(column[pos] == '1' for pos in included)
+        ones = sum(column[pos] == "1" for pos in included)
         if ones < len(included) / 2:
-            path.append('1')
+            path.append("1")
         else:
-            path.append('0')
+            path.append("0")
 
         included = {pos for pos in included if column[pos] == path[-1]}
 
@@ -42,51 +41,45 @@ def execute(s: str) -> int:
 def execute_haxy_dicts(s: str) -> int:
     lines = s.splitlines()
 
-    root: dict[str, Any] = {'count': 0}
+    root: dict[str, Any] = {"count": 0}
     for line in lines:
         current = root
         for c in line:
-            current['count'] += 1
-            current.setdefault(c, {'count': 0})
+            current["count"] += 1
+            current.setdefault(c, {"count": 0})
             current = current[c]
-        current['count'] += 1
+        current["count"] += 1
 
     path = []
     current = root
     while True:
-        if (
-                current.get('1', {}).get('count', 0) >=
-                current.get('0', {}).get('count', 0)
-        ):
-            current = current['1']
-            path.append('1')
+        if current.get("1", {}).get("count", 0) >= current.get("0", {}).get("count", 0):
+            current = current["1"]
+            path.append("1")
         else:
-            current = current['0']
-            path.append('0')
+            current = current["0"]
+            path.append("0")
 
-        if current['count'] == 1:
-            prefix = ''.join(path)
+        if current["count"] == 1:
+            prefix = "".join(path)
             break
 
     path = []
     current = root
     while True:
-        if (
-                current.get('1', {}).get('count', 0) <
-                current.get('0', {}).get('count', 0)
-        ):
-            current = current['1']
-            path.append('1')
+        if current.get("1", {}).get("count", 0) < current.get("0", {}).get("count", 0):
+            current = current["1"]
+            path.append("1")
         else:
-            current = current['0']
-            path.append('0')
+            current = current["0"]
+            path.append("0")
 
-        if current['count'] == 1:
-            prefix2 = ''.join(path)
+        if current["count"] == 1:
+            prefix2 = "".join(path)
             break
 
-    best, = (line for line in lines if line.startswith(prefix))
-    worst, = (line for line in lines if line.startswith(prefix2))
+    (best,) = (line for line in lines if line.startswith(prefix))
+    (worst,) = (line for line in lines if line.startswith(prefix2))
 
     return int(best, 2) * int(worst, 2)
 
