@@ -3,7 +3,6 @@ import os
 import re
 from typing import DefaultDict
 
-
 LINE_RE = re.compile(r"^(\w+ \w+) bags contain (.+)$")
 CHILD_RE = re.compile(r"(\d+) (\w+ \w+)")
 
